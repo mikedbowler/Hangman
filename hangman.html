@@ -9,32 +9,10 @@
 
 <h1> Hangman </h1>
 
+<p id="blanks"></p>
 <p id="letters"></p>
 
-<script>
-
-var parts = 0;
-var buttons = "";
-
-for(i=0;i<26;i++){
-
-if(i==13){
-buttons+="</br>";
-}
-
-buttons+="<button id='button"+i+"' onclick='chooseLetter(this)'>"+String.fromCharCode(i+65)+"</button>";
-
-}
-
-function chooseLetter(b){
-	b.style.color = "red";
-    b.disabled = true;
-  
-}
-
-document.getElementById("letters").innerHTML = buttons;
-
-</script>
+<script src="hangman.js"></script>
 
 </body>
 </html>
