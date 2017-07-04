@@ -1,9 +1,18 @@
 var parts = 0;
 var buttons = "";
-var text = "zipper";
-var arr = text.split("");
-var len = text.length;
+var word = "Zipper";
+var arr = word.split("");
+var len = word.length;
 var numCorrect = 0;
+
+//Initializes empty blanks to match the hidden word's length
+var text = "<table><tr>";
+for (i = 0; i < arr.length; i++) {
+    text += "<td id='box"+i+"'></td>";
+}
+
+text+="</tr></table>"
+document.getElementById("blanks").innerHTML = text;
 
 //Create buttons for letters A-Z
 for(i=0;i<26;i++){
@@ -24,8 +33,8 @@ function chooseLetter(b){
     b.disabled = true;
 
     //Determines if the letter exists in the string
-    if(text.indexOf(b.innerHTML) > -1 || text.indexOf(b.innerHTML.toLowerCase()) > -1){
-    	correct(b.innerHTML.toLowerCase());
+    if(word.indexOf(b.innerHTML) > -1 || word.indexOf(b.innerHTML.toLowerCase()) > -1){
+    	addLetter(b.innerHTML);
     }
     else{
     	//Add a part to the man (when graphics are added)
@@ -38,8 +47,15 @@ function chooseLetter(b){
     }
 }
 
-function correct(ch){
+//Adds a letter to the display, handeling both upper/lower case
+function addLetter(ch){
+    for(j=0;j<arr.length;j++){
+        if(ch==arr[j]){        
+            document.getElementById("box"+j).innerHTML = ch;
+        }
+        else if(ch.toLowerCase()==arr[j]){
+            document.getElementById("box"+j).innerHTML = ch.toLowerCase();
+        }
 
-	
+    }
 }
-
