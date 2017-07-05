@@ -1,6 +1,6 @@
 var parts = 0;
 var buttons = "";
-var word = "Zipper";
+var word = "Zip per";
 var arr = word.split("");
 var len = word.length;
 var numCorrect = 0;
@@ -8,7 +8,12 @@ var numCorrect = 0;
 //Initializes empty blanks to match the hidden word's length
 var text = "<table><tr>";
 for (i = 0; i < arr.length; i++) {
+    if(arr[i]==" "){
+         text += "<td class='h' id='box"+i+"'></td>";
+    }
+    else{
     text += "<td id='box"+i+"'></td>";
+    }
 }
 
 text+="</tr></table>"
@@ -86,7 +91,10 @@ function reset(){
     len = word.length;
     document.getElementById("blanks").innerHTML = "";
     text = "<table><tr>";
-        for (i = 0; i < arr.length; i++) {
+        if(arr[i]==" "){
+            text += "<td class='h' id='box"+i+"'></td>";
+        }
+        else{
             text += "<td id='box"+i+"'></td>";
         }
      document.getElementById("blanks").innerHTML = text;
