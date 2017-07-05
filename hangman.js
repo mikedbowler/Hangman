@@ -14,15 +14,7 @@ for (i = 0; i < arr.length; i++) {
 text+="</tr></table>"
 document.getElementById("blanks").innerHTML = text;
 
-//Create buttons for letters A-Z
-for(i=0;i<26;i++){
-
-	if(i==13){
-	buttons+="</br>";
-	}	
-
-	buttons+="<button id='button"+i+"' onclick='chooseLetter(this)'>"+String.fromCharCode(i+65)+"</button>";
-}
+displayButtons();
 
 //Display the letter buttons
 document.getElementById("letters").innerHTML = buttons;
@@ -43,6 +35,7 @@ function chooseLetter(b){
     	//Check to see if user lost the game
     	if(parts==6){
     		alert("Game Over!");
+            reset();
     	}
     }
 }
@@ -52,10 +45,51 @@ function addLetter(ch){
     for(j=0;j<arr.length;j++){
         if(ch==arr[j]){        
             document.getElementById("box"+j).innerHTML = ch;
+            numCorrect++;
         }
         else if(ch.toLowerCase()==arr[j]){
             document.getElementById("box"+j).innerHTML = ch.toLowerCase();
+            numCorrect++;
         }
+    }
+    if(numCorrect==len){
+            alert("Congratulations! You Won!");
+            reset();
+        }
+}
 
+//Creates buttons
+function displayButtons(){
+
+    //Create buttons for letters A-Z
+    for(i=0;i<26;i++){
+
+        if(i==13){
+            buttons+="</br>";
+        }   
+
+     buttons+="<button id='button"+i+"' onclick='chooseLetter(this)'>"+String.fromCharCode(i+65)+"</button>";
     }
 }
+
+//Reset the game and provide a new word to guess
+function reset(){
+
+    parts=0;
+    numCorrect=0;
+    buttons="";
+    document.getElementById("letters").innerHTML = "";
+    displayButtons();
+    document.getElementById("letters").innerHTML = buttons;
+    word = "Bowling";
+    arr = word.split("");
+    len = word.length;
+    document.getElementById("blanks").innerHTML = "";
+    text = "<table><tr>";
+        for (i = 0; i < arr.length; i++) {
+            text += "<td id='box"+i+"'></td>";
+        }
+     document.getElementById("blanks").innerHTML = text;
+}
+
+
