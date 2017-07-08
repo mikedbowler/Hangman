@@ -4,6 +4,7 @@ var word = "Zipper";
 var arr = word.split("");
 var len = word.length-occurs(arr," ");
 var numCorrect = 0;
+var gameWon = false;
 var c = document.getElementById("myCanvas");
 
 //Displays the gallows
@@ -37,7 +38,7 @@ function chooseLetter(b){
     if(word.indexOf(b.innerHTML) > -1 || word.indexOf(b.innerHTML.toLowerCase()) > -1){
     	addLetter(b.innerHTML);
     }
-    else{
+    else if(!gameWon){
     	//Add a part to the man
     	parts++;
         drawBodyPart();
@@ -62,6 +63,7 @@ function addLetter(ch){
         }
     }
     if(numCorrect==len){
+            gameWon = true;
             setTimeout(function(){alert("Congratulations! You Won!");},1);
         }
 }
@@ -96,6 +98,7 @@ function reset(){
 
     parts=0;
     numCorrect=0;
+    gameWon = false;
     displayGallows();
     buttons="";
     document.getElementById("letters").innerHTML = "";
