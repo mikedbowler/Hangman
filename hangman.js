@@ -1,6 +1,8 @@
 var parts = 0;
 var buttons = "";
-var word = "Zipper";
+
+//Chooses a random word from the array (Contains 1000 words ex: 0-999)
+var word = wordsArr[Math.floor(Math.random() * 1000)];
 var arr = word.split("");
 var len = word.length-occurs(arr," ");
 var numCorrect = 0;
@@ -104,7 +106,7 @@ function reset(){
     document.getElementById("letters").innerHTML = "";
     displayButtons();
     document.getElementById("letters").innerHTML = buttons;
-    word = "Bowling";
+    word = wordsArr[Math.floor(Math.random() * 1000)];
     arr = word.split("");
     len = word.length-occurs(arr," ");
     document.getElementById("blanks").innerHTML = "";
