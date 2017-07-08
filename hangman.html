@@ -13,6 +13,7 @@
 	td{
   	 	border-bottom: 2px solid black;
 		width: 10px;
+		height: 20px;
 	}
 	td.h{
 		border-bottom: 2px solid white;
@@ -26,8 +27,12 @@
 
 <h1> Hangman </h1>
 
+<canvas id="myCanvas" width="300" height="300" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
 <p id="blanks"></p>
 <p id="letters"></p>
+
+<button onclick="reset()"> Reset </button>
 
 <script src="hangman.js"></script>
 
