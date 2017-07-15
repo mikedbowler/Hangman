@@ -1,3 +1,4 @@
+//Declaring variables
 var parts = 0;
 var buttons = "";
 
@@ -131,14 +132,14 @@ function displayGallows(){
     //Gallows base
     var base = c.getContext("2d");
     base.beginPath();
-    base.moveTo(10,250);
-    base.lineTo(110,250);
+    base.moveTo(10,290);
+    base.lineTo(110,290);
     base.stroke();
     base.closePath();
     //Gallows support
     var support = c.getContext("2d");
     support.beginPath();
-    support.moveTo(60,250);
+    support.moveTo(60,290);
     support.lineTo(60,50);
     support.stroke();
     support.closePath();
