@@ -3,15 +3,51 @@
 
 <head>
 	<title> Hangman Home Screen </title>
+
+<style>
+
+body {
+		background-image: url("hangman_background.jpg");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+
+div.center {
+		margin: auto;
+		width: 30%;
+    	padding: 10px;
+    	text-align: center;
+	}
+
+h1 {
+	font-size: 80px;
+}
+
+button {
+	font-size: 30px;
+	text-align: center;
+	width: 80px;
+	height: 60px;
+	border-radius: 8px;
+	border-color: saddlebrown;
+	background-color: rgb(242,137,58);
+}
+
+
+</style>
 </head>
 
 <body>
 
-<h1> Hangman </h1>
+<div class="center">
 
-<form action="hangman.html">
-    <input type="submit" value="Start" />
-</form>
+	<h1> Hangman </h1>
+
+	<a href="hangman.html">
+		<button>Start</button>
+	</a>
+</div>
 
 </body>
 </html>
